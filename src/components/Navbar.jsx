@@ -1,10 +1,26 @@
-import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Image, OverlayTrigger, Popover } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import avatar from '../assets/avatar.avif';
 
-function CollapsibleExample() {
+export default function MyNav() {
+  const [user, setUser] = useState({
+    username: 'First Last',
+    email: 'firsst.last@gmail.com',
+    isLogin: true
+  });
+  const popoverClickRootClose = (
+    <Popover id="popover-trigger-click-root-close">
+      <Popover.Header as="h3">{user.username}</Popover.Header>
+      <Popover.Body>
+        <p>Email: {user.email}</p>
+        <Button variant="outline-primary" onClick={() => setUser({ ...user, isLogin: false })}>Logout</Button>
+      </Popover.Body>
+    </Popover>
+  );
   return (
     <Navbar collapseOnSelect data-bs-theme="dark" sticky="top" expand="lg" className="bg-body-tertiary">
       <Container>
@@ -26,22 +42,28 @@ function CollapsibleExample() {
             <Nav.Link href="#contacts">Contacts</Nav.Link>
             <Nav.Link href="#reservation">Reservation</Nav.Link>
           </Nav>
-          <Nav>
+          { !user.isLogin && <Nav>
             <Nav.Link href="#login">
               <Button variant="outline-primary">Login</Button>
             </Nav.Link>
             <Nav.Link href="#signup">
               <Button variant="outline-primary">Sign Up</Button>
             </Nav.Link>
-          </Nav>
+          </Nav> }
           {/* if login print this */}
-          { false && <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text> }
+          { user.isLogin && <Navbar.Text>
+            <a href="#profile"> {user.username}</a>
+              <OverlayTrigger
+                trigger="click"
+                rootClose
+                placement="bottom"
+                overlay={popoverClickRootClose}>
+                <Image src={avatar} roundedCircle width={35} height={35}/>
+              </OverlayTrigger>
+            </Navbar.Text>
+          }
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
-
-export default CollapsibleExample;
