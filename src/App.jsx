@@ -5,10 +5,10 @@ import CollapsibleExample from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <>
         <CollapsibleExample />
-        <Container fluid>
-          <Row>
+        <main>
+          <div className='grid-min-250'>
             <MyCard />
             <MyCard />
             <MyCard />
@@ -18,69 +18,9 @@ function App() {
             <MyCard />
             <MyCard />
             <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-            <MyCard />
-          </Row>
-        </Container>
-    </div>
+          </div>
+        </main>
+    </>
   );
 }
 
