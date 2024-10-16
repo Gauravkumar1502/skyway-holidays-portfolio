@@ -1,12 +1,12 @@
 import { Container, Row } from 'react-bootstrap';
 import './App.css';
 import MyCard from './components/Card';
-import CollapsibleExample from './components/Navbar';
+import MyNav from './components/Navbar';
 
 function App() {
   return (
     <>
-        <CollapsibleExample />
+        <MyNav />
         <main>
           <div className='grid-min-250'>
             <MyCard />
