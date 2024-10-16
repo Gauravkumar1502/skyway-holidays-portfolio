@@ -9,7 +9,7 @@ import avatar from '../assets/avatar.avif';
 export default function MyNav() {
   const [user, setUser] = useState({
     username: 'First Last',
-    email: 'firsst.last@gmail.com',
+    email: 'first.last@gmail.com',
     isLogin: true
   });
   const popoverClickRootClose = (
@@ -52,13 +52,13 @@ export default function MyNav() {
           </Nav> }
           {/* if login print this */}
           { user.isLogin && <Navbar.Text>
-            <a href="#profile"> {user.username}</a>
+            <a href="#profile" className='mr-05'> {user.username}</a>
               <OverlayTrigger
                 trigger="click"
                 rootClose
                 placement="bottom"
                 overlay={popoverClickRootClose}>
-                <Image src={avatar} roundedCircle width={35} height={35}/>
+              <Image src={avatar} roundedCircle width={35} height={35} style={{cursor:'pointer'}}/>
               </OverlayTrigger>
             </Navbar.Text>
           }
